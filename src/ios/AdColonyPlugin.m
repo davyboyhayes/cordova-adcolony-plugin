@@ -67,8 +67,8 @@
         [self sendPluginErrorToCallbackId:command.callbackId message:@"Ad currently playing"];
     } else {
         NSString *zoneId = [command.arguments objectAtIndex:0];
-        [AdColony playVideoAdForZone:zoneId withDelegate:self];
         self.videoAdCallbackId = command.callbackId;
+        [AdColony playVideoAdForZone:zoneId withDelegate:self];
     }
 }
 
@@ -82,8 +82,8 @@
         [self sendPluginErrorToCallbackId:command.callbackId message:@"Ad currently playing"];
     } else {
         NSString *zoneId = [command.arguments objectAtIndex:0];
-        [AdColony playVideoAdForZone:zoneId withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
         self.videoAdCallbackId = command.callbackId;
+        [AdColony playVideoAdForZone:zoneId withDelegate:self withV4VCPrePopup:YES andV4VCPostPopup:YES];
     }
 }
 
@@ -262,7 +262,7 @@
 - (void)onAdColonyAdStartedInZone:(NSString *)zoneId
 {
     [self sendPluginOKToCallbackId:self.videoAdCallbackId];
-    self.videoAdCallbackId = nil;
+    //self.videoAdCallbackId = nil;
 }
 
 /**
